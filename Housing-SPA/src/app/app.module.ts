@@ -27,6 +27,7 @@ import { SortPipe } from './pipes/sort.pipe';
 import { UserDashboardComponent } from './user/user-dashboard/user-dashboard.component';
 import { UserLoginComponent } from './user/user-login/user-login.component';
 import { AppRoutingModule } from './app-routing.module';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 @Injectable()
 export class CustomHammerConfig extends HammerGestureConfig  {
@@ -50,7 +51,8 @@ export class CustomHammerConfig extends HammerGestureConfig  {
     FilterPipe,
     SortPipe,
     UserDashboardComponent,
-    UserLoginComponent
+    UserLoginComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
