@@ -6,19 +6,20 @@ import { filter } from 'rxjs/operators';
 })
 export class FilterPipe implements PipeTransform {
 
-  transform(value: any, filterString: string, propName: string): any {
+  transform(value: any, args: string, propName: string): any {
     const resultArray = [];
     if (value) {
-    if (value.length === 0 || filterString === '' ) {
+    if (value.length === 0 || args === '' ) {
       return value;
     }
 
     for (const item of value) {
-      if (item[propName] === filterString) {
+      if (item[propName].toLowerCase().includes(args)) {
         resultArray.push(item);
-      }
+      } 
     }
     return resultArray;
     }
   }
 }
+

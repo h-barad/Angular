@@ -3,7 +3,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { NgModule, Injectable } from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import {Routes, RouterModule} from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { BindingComponent } from './binding/binding.component';
@@ -27,6 +26,7 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { SortPipe } from './pipes/sort.pipe';
 import { UserDashboardComponent } from './user/user-dashboard/user-dashboard.component';
 import { UserLoginComponent } from './user/user-login/user-login.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @Injectable()
 export class CustomHammerConfig extends HammerGestureConfig  {
@@ -36,15 +36,6 @@ export class CustomHammerConfig extends HammerGestureConfig  {
   };
 }
 
-const appRoutes: Routes = [
-  { path: '', component: PropertyListComponent},
-  { path: 'property-list/:SellRent', component: PropertyListComponent, resolve: {prp: PropertyResolver}},
-  { path: 'add-property', component: AddPropertyComponent },
-  { path: 'property-detail/:id', component: PropertyDetailComponent, resolve: {prp: PropertyDetailResolver}},
-  { path: 'user-register', component: UserRegisterComponent },
-  { path: 'user/dashboard', component: UserDashboardComponent },
-  { path: 'user/login', component: UserLoginComponent }
-];
 
 @NgModule({
   declarations: [
@@ -68,7 +59,7 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     HttpClientModule,
     NgxGalleryModule,
-    RouterModule.forRoot(appRoutes),
+    AppRoutingModule,
     TabsModule.forRoot(),
     BsDropdownModule.forRoot(),
     ButtonsModule.forRoot(),
